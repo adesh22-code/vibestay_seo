@@ -556,5 +556,23 @@
     "googleMap": "https://share.google/IkI8ddeMNoD8KB5Ez",
     "gallery": "https://ik.imagekit.io/vibestay/vibestay/1000012456_V-dDps-B4.jpg|https://ik.imagekit.io/vibestay/vibestay/1000012455_y7d0BUxNe.jpg|https://ik.imagekit.io/vibestay/vibestay/1000012454_Et0WA20WS.jpg|https://ik.imagekit.io/vibestay/vibestay/1000012453_DATFPWaw0.jpg|https://ik.imagekit.io/vibestay/vibestay/1000012452_fLJq2ZQmU.jpg|https://ik.imagekit.io/vibestay/vibestay/1000012451_oADbgJisF.jpg",
     "image": "https://ik.imagekit.io/vibestay/vibestay/1000012458_JyhzZLs6Y.jpg"
+  },
+  {
+    "id": "32",
+    "name": "Adesh Homestay",
+    "location": "Sonada",
+    "price": "1500",
+    "scenery": "",
+    "amenities": "",
+    "description": "",
+    "phone": "7001155406",
+    "whatsapp": "7001155406",
+    "facebook": "",
+    "website": "",
+    "youtube": "",
+    "instagram": "",
+    "googleMap": "",
+    "gallery": "",
+    "image": ""
   }
 ]
