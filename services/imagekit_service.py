@@ -1,10 +1,6 @@
 import os
 import requests
 
-# TEMPORARY TEST ONLY — DO NOT COMMIT THESE VALUES
-os.environ["GITHUB_TOKEN"] = "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"
-os.environ["IMAGEKIT_PRIVATE_KEY"] = "private_CYRHDBDLYGDNY/Ejc/+ceyKVL+E="
-
 IMAGEKIT_API_URL = "https://api.imagekit.io/v1"
 
 def get_private_key():
