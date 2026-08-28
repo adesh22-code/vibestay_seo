@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Wishlist | Darjeeling Tour & Stay</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+body{
+    background:#f8f9fa;
+}
+
+.page-title{
+    margin:30px 0;
+    text-align:center;
+    font-weight:bold;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.card img{
+    height:220px;
+    object-fit:cover;
+}
+
+.price{
+    color:#198754;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.remove-btn{
+    width:100%;
+}
+</style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-success">
+<div class="container">
+<a class="navbar-brand" href="index.html">
+Darjeeling Tour & Stay
+</a>
+
+<a href="index.html" class="btn btn-light">
+Home
+</a>
+</div>
+</nav>
+
+<div class="container">
+
+<h2 class="page-title">
+❤️ My Wishlist
+</h2>
+
+<div class="row" id="wishlistContainer">
+
+</div>
+
+<div id="emptyMessage" class="text-center mt-5 d-none">
+<h3>Your wishlist is empty.</h3>
+
+<a href="index.html" class="btn btn-success mt-3">
+Browse Homestays
+</a>
+</div>
+
+</div>
+
+<script>
+
+/*const SHEET_URL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTWXIyW8Zk4YXmIK4Bl1g2cMIIWBEOaaIrfSM2zaWsTr63lmc0Td8lDm2kY11Ap2w/pub?gid=942226858&single=true&output=csv";
+
+    const SHEET_URL = data.json
+let wishlist =
+JSON.parse(localStorage.getItem("wishlist")) || [];
+
+async function loadWishlist(){
+
+const response=await fetch(SHEET_URL);
+
+const csv=await response.text();
+
+const homes=csvToObjects(csv);
+
+const selected=homes.filter(home=>
+wishlist.includes(String(home.id))
+);
+
+render(selected);
+
+}
+
+function csvToObjects(csv){
+
+const rows=csv.trim().split("\n");
+
+const headers=rows[0].split(",");
+
+const data=[];
+
+for(let i=1;i<rows.length;i++){
+
+const values=parseCSV(rows[i]);
+
+let obj={};
+
+headers.forEach((h,index)=>{
+
+obj[h.trim()]=values[index]||"";
+
+});
+
+data.push(obj);
+
+}
+
+return data;
+
+}
+
+function parseCSV(line){
+
+let result=[];
+
+let current="";
+
+let inside=false;
+
+for(let c of line){
+
+if(c=='"') inside=!inside;
+
+else if(c==","&&!inside){
+
+result.push(current);
+
+current="";
+
+}
+
+else current+=c;
+
+}
+
+result.push(current);
+
+return result;
+
+}
+
+function render(list){
+
+const container=document.getElementById("wishlistContainer");
+
+container.innerHTML="";
+
+if(list.length==0){
+
+document.getElementById("emptyMessage").classList.remove("d-none");
+
+return;
+
+}
+
+list.forEach(home=>{
+
+container.innerHTML+=`
+
+<div class="col-md-4 mb-4">
+
+<div class="card">
+
+<img src="${home.image}" class="card-img-top">
+
+<div class="card-body">
+
+<h5>${home.name}</h5>
+
+<p>${home.location}</p>
+
+<p class="price">₹${home.price}</p>
+
+<div class="d-grid gap-2">
+
+<a href="details.html?id=${home.id}" class="btn btn-success">
+
+View Details
+
+</a>
+
+<button class="btn btn-danger remove-btn"
+
+onclick="removeItem('${home.id}')">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function removeItem(id){
+
+wishlist=wishlist.filter(item=>item!=id);
+
+localStorage.setItem(
+
+"wishlist",
+
+JSON.stringify(wishlist)
+
+);
+
+loadWishlist();
+
+}
+
+loadWishlist();*/
+    const DATA_URL = "data.json";
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+async function loadWishlist() {
+  try {
+    const response = await fetch(DATA_URL);
+    const homes = await response.json(); // Natively parses the JSON array
+
+    const selected = homes.filter((home) =>
+      wishlist.includes(String(home.id))
+    );
+
+    render(selected);
+  } catch (error) {
+    console.error("Error loading wishlist items:", error);
+  }
+}
+
+function render(list) {
+  const container = document.getElementById("wishlistContainer");
+  const emptyMsg = document.getElementById("emptyMessage");
+  
+  container.innerHTML = "";
+
+  if (list.length === 0) {
+    if (emptyMsg) emptyMsg.classList.remove("d-none");
+    return;
+  }
+
+  if (emptyMsg) emptyMsg.classList.add("d-none");
+
+  container.innerHTML = list.map((home) => `
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="${home.image}" class="card-img-top" alt="${home.name}">
+        <div class="card-body">
+          <h5>${home.name}</h5>
+          <p>${home.location}</p>
+          <p class="price">₹${home.price}</p>
+          <div class="d-grid gap-2">
+            <a href="details.html?id=${home.id}" class="btn btn-success">
+              View Details
+            </a>
+            <button class="btn btn-danger remove-btn" onclick="removeItem('${home.id}')">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function removeItem(id) {
+  wishlist = wishlist.filter((item) => item != id);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  loadWishlist();
+}
+
+loadWishlist();
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
