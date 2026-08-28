@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vibe Stay Admin</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Vibe Stay Admin</h1>
+    <p>Homestay Management</p>
+</header>
+
+<main>
+
+    <!-- Homestay List -->
+    <section id="listSection">
+
+        <div class="page-header">
+            <h2>Homestays</h2>
+            <span id="totalHomestays">Loading...</span>
+        </div>
+
+        <div id="message"></div>
+
+        <div class="table-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="homestayTable">
+                    <tr>
+                        <td colspan="6">Loading homestays...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <button onclick="showAddForm()">Add New Homestay</button>
+
+    </section>
+
+
+    <!-- Edit Form -->
+    <section id="editSection" class="edit-section">
+
+        <div class="page-header">
+            <h2>Edit Homestay</h2>
+
+            <button type="button" id="cancelEdit">
+                Cancel
+            </button>
+        </div>
+
+        <form id="editForm">
+
+            <input type="hidden" id="editId">
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" id="price">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="text" id="whatsapp">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="facebook">Facebook</label>
+                    <input type="text" id="facebook">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="text" id="website">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="youtube">YouTube</label>
+                    <input type="text" id="youtube">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" id="instagram">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="googleMap">Google Map</label>
+                    <input type="text" id="googleMap">
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label for="scenery">Scenery</label>
+                <input type="text" id="scenery">
+            </div>
+
+
+            <div class="form-group">
+                <label for="amenities">Amenities</label>
+                <input type="text" id="amenities">
+            </div>
+
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" rows="6"></textarea>
+            </div>
+
+
+            <div class="form-group">
+
+    <label>Main Image</label>
+
+    <div id="mainImagePreview" class="image-preview">
+        No image
+    </div>
+
+    <input
+        type="file"
+        id="mainImageFile"
+        accept="image/*"
+    >
+
+    <button
+        type="button"
+        id="uploadMainImage">
+        Upload Main Image
+    </button>
+
+    <input
+        type="text"
+        id="image"
+        placeholder="ImageKit image URL"
+    >
+
+            </div>
+
+
+            <div class="form-group">
+
+    <label>Gallery</label>
+
+    <div id="galleryPreview" class="gallery-preview">
+    </div>
+
+    <input
+        type="file"
+        id="galleryFiles"
+        accept="image/*"
+        multiple
+    >
+
+    <button
+        type="button"
+        id="uploadGallery">
+        Upload Gallery Images
+    </button>
+
+    <textarea
+        id="gallery"
+        rows="5"
+        placeholder="Image URLs separated by |"></textarea>
+
+    <small>
+        Gallery images are stored using | between URLs.
+    </small>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button type="button" id="saveButton">
+                    Save Changes
+                </button>
+
+                <button type="button" id="cancelEdit2">
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+
+</body>
+</html>
