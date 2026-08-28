@@ -5,7 +5,7 @@ import requests
 
 
 GITHUB_OWNER = "adesh22-code"
-GITHUB_REPO = "vibe-stay"
+GITHUB_REPO = "vibestay_seo"
 GITHUB_FILE_PATH = "docs/data.json"
 GITHUB_BRANCH = "main"
 
