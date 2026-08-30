@@ -450,3 +450,29 @@ body {
         padding: 20px !important;
     }
 }
+
+.recent-locations {
+  margin: 25px auto;
+  padding: 15px 20px;
+  max-width: 900px;
+  text-align: center;
+}
+
+.recent-locations h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.recent-locations p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.recent-locations a {
+  text-decoration: none;
+}
+
+.recent-locations a:hover {
+  text-decoration: underline;
+}
