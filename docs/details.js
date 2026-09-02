@@ -374,7 +374,7 @@ function setupButtons() {
 
         const shareData = {
             title: homestay.name || document.title,
-            text: `🏡 Check out ${homestay.name || "this homestay"} in ${homestay.location || ""}!`,
+          //  text: `🏡 Check out ${homestay.name || "this homestay"} in ${homestay.location || ""}!`,
             url: window.location.href
         };
 
